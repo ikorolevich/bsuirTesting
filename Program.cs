@@ -1,8 +1,21 @@
-﻿namespace bsuirTesting
+﻿using Microsoft.VisualBasic;
+using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
+
+namespace bsuirTesting
 {
+    static class ExtClass
+    {
+        public static void NewMethod(this string str )
+        {
+
+        }
+    }
+
     internal class Program
     {
-        static class myClass
+        public static class myClass
         {
             public static double calclulate(double x)
             {
@@ -56,10 +69,19 @@
                     }
                 }
             }
+            public static double Sum<TVal1, TVal2>(TVal1 a, TVal2 b)
+            {
+                
+                double result = Convert.ToDouble(a) + Convert.ToDouble(b);
+
+                return result;
+
+            }
         }
+        
         static void Main(string[] args)
         {
-
+            double res = myClass.Sum(1.2, "2");
 
             int n = 50;
             int randomRange = 100;
